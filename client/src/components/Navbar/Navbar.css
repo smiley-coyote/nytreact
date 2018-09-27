@@ -1,0 +1,10 @@
+.nav {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.nav-link {
+  color: white;
+}
