@@ -5,21 +5,23 @@ import Title from "./components/Title"
 import Wrapper from "./components/Wrapper"
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
-// import Saved from "./pages/Saved"
+import Saved from "./pages/Saved"
+import Body from "./components/Body"
 
 const App = () => (
      
       <Router>
-        <div>
+        <Body>
         <Wrapper>
           <Title />
           <Navbar />
+          </Wrapper>
           <Switch>
             <Route exact path="/" component={Home} />
-            {/* <Route exact path="/saved" component={Saved} /> */}
+            <Route exact path="/saved" component={Saved} />
           </Switch>
-         </Wrapper>
-         </div>
+       
+          </Body>
       </Router>
     
 )

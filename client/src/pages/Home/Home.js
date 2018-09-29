@@ -8,13 +8,18 @@ import Results from "../../components/Results"
 class Home extends Component {
   state = {
     results: [],
-    search: ""
-    // number: 5,
-    // startYear: 1980,
-    // endYear: 2018
+    search: "",
+    number: 5,
+    startYear: 1980,
+    endYear: 2018
   }
 
-
+saveArticle = data =>{
+  API.saveArticle({
+    title: data.headline.main,
+    url: data.web_url
+  })
+}
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -22,7 +27,10 @@ class Home extends Component {
     });
   };
 
-
+handleFormClear = event => {
+  event.preventDefault();
+  this.setState({results: []})
+}
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -47,8 +55,18 @@ class Home extends Component {
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
+                handleFormClear={this.handleFormClear}
               />
-    <Results results={this.state.results} />
+<Results>
+    {this.state.results.map(result => (
+         <div key={result._id}>
+         <h2>{result.headline.main}</h2>
+         <p>{result.snippet}</p>
+         <a href={result.web_url}>visit article</a>
+         <button onClick={() => this.saveArticle(result)}>Save</button>
+         </div>
+    ))}
+ </Results>
     </Wrapper>
     );
   }

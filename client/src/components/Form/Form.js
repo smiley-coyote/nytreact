@@ -3,7 +3,7 @@ import React from "react";
 
 const Form = props => (
   <div className="row">
-    <div className="col-sm-12">
+    <div className="col-lg-12">
       <br />
       <div className="panel panel-primary">
         <div className="panel-heading">
@@ -24,9 +24,21 @@ const Form = props => (
             <div className="form-group">
               <label htmlFor="pwd">Number of Records to Retrieve:</label>
               <select className="form-control" id="num-records-select">
-                <option value="1">1</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
+                <option 
+                value="1"
+                onChange={props.handleInputChange}
+                name="number"
+                >1</option>
+                <option 
+                value="5"
+                onChange={props.handleInputChange}
+                name="number"
+                >5</option>
+                <option 
+                value="10"
+                onChange={props.handleInputChange}
+                name="number"
+                >10</option>
               </select>
             </div>
             <div className="form-group">
@@ -43,7 +55,7 @@ const Form = props => (
             >
               Search
       </button>
-            <button type="button" className="btn btn-default" id="clear-all">Clear Results</button>
+            <button onClick={props.handleFormClear} type="button" className="btn btn-default" id="clear-all">Clear Results</button>
           </div>
         </form>
       </div>

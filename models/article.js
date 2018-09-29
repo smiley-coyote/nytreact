@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const articleSchema = new Schema({
   title: { type: String, required: true },
   url: { type: String, required: true },
-  date: { type: Date, required: true }
+  date: { type: Date, required: false }
 });
 
-const Book = mongoose.model("Article", articleSchema);
+const Articles = mongoose.model("Articles", articleSchema);
 
-module.exports = articleSchema;
+module.exports = Articles;
