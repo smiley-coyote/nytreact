@@ -14,6 +14,7 @@ class Home extends Component {
     // endYear: 2018
   }
 
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -26,26 +27,18 @@ class Home extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     API.search(this.state.search)
-      .then(res => {
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        this.setState({ results: res.data.message, error: "" });
-      })
-      .catch(err => this.setState({ error: err.message }));
+    .then(res =>{
+      console.log(res.data.response.docs);
+      this.setState({ results: res.data.response.docs})
+    })
+      // .then(res => {
+      //   if (res.data.status === "error") {
+      //     throw new Error(res.data.message);
+      //   }
+      //   this.setState({ results: res.data, error: "" });
+      // })
+      // .catch(err => this.setState({ error: err.message }));
   };
-
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.search && this.state.number) {
-  //     API.search({
-  //       search: this.state.search,
-  //       number: this.state.number,
-  //     })
-  //       .then(res => this.loadResults())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
 
   render() {
     return (
