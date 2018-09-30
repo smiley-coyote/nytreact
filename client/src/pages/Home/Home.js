@@ -3,23 +3,24 @@ import API from "../../utils/API";
 import Wrapper from "../../components/Wrapper"
 import Form from "../../components/Form"
 import Results from "../../components/Results"
+import "./Home.css"
 
 
 class Home extends Component {
   state = {
     results: [],
     search: "",
-    number: 5,
-    startYear: 1980,
-    endYear: 2018
   }
 
 saveArticle = data =>{
+  
   API.saveArticle({
     title: data.headline.main,
-    url: data.web_url
-  })
-}
+    url: data.web_url,
+    description: data.snippet,
+    date: data.pub_data
+  });
+};
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -61,9 +62,11 @@ handleFormClear = event => {
     {this.state.results.map(result => (
          <div key={result._id}>
          <h2>{result.headline.main}</h2>
+         <p>{result.pub_date}</p>
          <p>{result.snippet}</p>
          <a href={result.web_url}>visit article</a>
-         <button onClick={() => this.saveArticle(result)}>Save</button>
+         <button id="save" onClick={() => this.saveArticle(result)}>Save</button>
+         <hr />
          </div>
     ))}
  </Results>

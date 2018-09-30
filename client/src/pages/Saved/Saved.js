@@ -35,9 +35,13 @@ class Saved extends Component {
     {this.state.saved.map(result => (
          <div key={result._id}>
          <h2>{result.title}</h2>
+         <p>{result.date}</p>
+         <p>{result.description}</p>
          <a href={result.url}>visit article</a>
          <button onClick={() => this.deleteArticle(result._id)}>Delete</button>
+         <hr />
          </div>
+         
     ))}
  </Results>
     </Wrapper>
