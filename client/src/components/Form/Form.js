@@ -7,7 +7,7 @@ const Form = props => (
       <br />
       <div className="panel panel-primary">
         <div className="panel-heading">
-          <h3 className="panel-title"><strong> Search Parameters</strong></h3>
+          <h3 className="panel-title"><strong> Article Search</strong></h3>
         </div>
         <form className="search">
           <div className="form-group">
@@ -21,7 +21,7 @@ const Form = props => (
               id="search"
             />
             <br />
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="pwd">Number of Records to Retrieve:</label>
               <select className="form-control" id="num-records-select">
                 <option 
@@ -48,7 +48,7 @@ const Form = props => (
             <div className="form-group">
               <label htmlFor="end-year">End Year (Optional):</label>
               <input type="text" className="form-control" id="end-year" />
-            </div>
+            </div> */}
             <button
               onClick={props.handleFormSubmit}
               className="btn btn-primary"
