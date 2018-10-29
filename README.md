@@ -8,6 +8,9 @@ This app uses React on the front end to display articles gathered from
 the NYT API and MongoDB on the back end to store or delete saved articles 
 onto a database.
 
+### Link
+https://peaceful-harbor-63155.herokuapp.com/
+
 ## Technologies
 * React
 * MongoDB
